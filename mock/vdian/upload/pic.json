@@ -1,0 +1,10 @@
+{
+    "code": 200,
+    "message": null,
+    "data": {
+        "returnMsg": "请求成功",
+        "returnCode": "REG00000",
+        "merQualUrl": "/src/assets/images/demo1.jpg",
+        "merQualOriginalFileName": "21432432432423.jpg"
+    }
+}

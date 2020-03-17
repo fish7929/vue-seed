@@ -1,0 +1,12 @@
+{
+    "code": 200,
+    "data": {
+        "code": 0,
+        "completeDate": "string",
+        "customerNo": "string",
+        "message": "string",
+        "orderNo": "string",
+        "status": "string"
+    },
+    "message": "请求成功"
+}

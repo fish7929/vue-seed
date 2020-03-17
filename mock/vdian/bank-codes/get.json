@@ -1,0 +1,46 @@
+{
+    "code": 200,
+    "message": null,
+    "data": [
+        {
+            "id": 1,
+            "bankName": "阿拉善左旗方大村镇银行",
+            "bankCode": "ALSFDYH"
+        },
+        {
+            "id": 2,
+            "bankName": "安徽肥西石银村镇银行",
+            "bankCode": "SHIYINBANK"
+        },
+        {
+            "id": 3,
+            "bankName": "安阳银行",
+            "bankCode": "AYYH"
+        },
+        {
+            "id": 4,
+            "bankName": "澳大利亚和新西兰银行（中国）有限公司",
+            "bankCode": "ADLYHXXL"
+        },
+        {
+            "id": 5,
+            "bankName": "奥地利奥合国际银行股份有限公司",
+            "bankCode": "ADLAH"
+        },
+        {
+            "id": 6,
+            "bankName": "民生银行",
+            "bankCode": "CMBC"
+        },
+        {
+            "id": 7,
+            "bankName": "农业银行",
+            "bankCode": "ABC"
+        },
+        {
+            "id": 8,
+            "bankName": "上海银行",
+            "bankCode": "SHYH"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "code": 200,
+    "message": null,
+    "data": {
+        "statusName": "入网中： PROCESSING PROCESSING_PRODUCT_INFO_SUCCESS  入网成功: PROCESS_SUCCESS 没有入网：  INIT 、PROCESS_REJECT、PROCESS_BACK、PROCESS_SUPPLE、PROCESS_SUPPLE_BACK",
+        "status": "PROCESS_SUCCESS"
+    }
+}

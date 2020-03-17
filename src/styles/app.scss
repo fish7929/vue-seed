@@ -1,0 +1,25 @@
+@import "./re_set.scss";
+@import "./common.scss";
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #dadada!important;
+  text-align: left;
+  direction: rtl;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #dadada!important;
+  text-align: left;
+  direction: rtl;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #dadada!important;
+  text-align: left;
+  direction: rtl;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #dadada!important;
+  text-align: left;
+  direction: rtl;
+}

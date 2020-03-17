@@ -1,0 +1,9 @@
+{
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        // "@babel/plugin-transform-runtime",   //会影响swiper的加载
+        "@babel/plugin-syntax-dynamic-import"
+    ]
+}

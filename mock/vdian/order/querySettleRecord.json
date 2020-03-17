@@ -1,0 +1,83 @@
+{
+    "code": 200,
+    "data": [
+        {
+            "remitAmount": 4765.35,
+            "remitStatus": "INIT",
+            "settleAmount": 4765.35,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 476.15,
+            "remitStatus": "PROCESSING",
+            "settleAmount": 476.15,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 997.00,
+            "remitStatus": "BANKPROCESS",
+            "settleAmount": 997.00,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 50000.05,
+            "remitStatus": "BANKPROFAILED",
+            "settleAmount": 50000.05,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 4765.35,
+            "remitStatus": "SUCCESS",
+            "settleAmount": 4765.35,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 476.15,
+            "remitStatus": "FAILED",
+            "settleAmount": 476.15,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 997.00,
+            "remitStatus": "REFUNDED",
+            "settleAmount": 997.00,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 500.05,
+            "remitStatus": "SYS_FAILED",
+            "settleAmount": 500.05,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 476.15,
+            "remitStatus": "RESERVE_SUCCESS",
+            "settleAmount": 476.15,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 997.00,
+            "remitStatus": "REFUNDING",
+            "settleAmount": 997.00,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        },
+        {
+            "remitAmount": 500.05,
+            "remitStatus": "BANKFAILED",
+            "settleAmount": 500.05,
+            "settleFee": 0,
+            "settleTime": "2020-03-05T03:41:08.899Z"
+        }
+    ],
+    "message": "请求成功"
+}

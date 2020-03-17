@@ -1,0 +1,17 @@
+{
+    "code": 200,
+    "data": {
+        "accountStatus": "账户状态",
+        "avaibleBalance": "788.88",
+        "balance": "888.88",
+        "frozenFund": "100.00",
+        "mobile": "1334444555",
+        "remittanceFund": "在途资金",
+        "settleBankCardInfo": {
+            "headBankName": "农业银行",
+            "bankcardNo": "6214850239126517"
+        },
+        "userId": 0
+    },
+    "message": "请求成功"
+}
