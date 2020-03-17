@@ -65,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    CommonTool.setTitle("商品详情");
+    // CommonTool.setTitle("商品详情");
   },
   methods: {}
 };

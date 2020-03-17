@@ -15,6 +15,7 @@ export default [{
 			path: '/shop',
 			component: BundleLoad.Shop,
 			meta: {
+				title: "花生微店",
 				keepAlive: true,   //是否一致存在
 				requireAuth: true   //是否需要登录 
 			}
@@ -24,6 +25,7 @@ export default [{
 			path: '/activity',
 			component: BundleLoad.Activity,
 			meta: {
+				title: "活动",
 				requireAuth: true   //是否需要登录 
 			}
 		},
@@ -32,13 +34,17 @@ export default [{
 			path: '/my',
 			component: BundleLoad.My,
 			meta: {
+				title: "我",
 				requireAuth: true   //是否需要登录 
 			}
 		},
 		//登录注册页
 		{
 			path: '/login',
-			component: BundleLoad.Login
+			component: BundleLoad.Login,
+			meta: {
+				title: "登录"
+			}
 		},
 		//产品详情
 		{
@@ -46,6 +52,7 @@ export default [{
 			component: BundleLoad.Goods,
 			name: 'goods',
 			meta: {
+				title: "商品详情",
 				requireAuth: true   //是否需要登录 
 			}
 		}

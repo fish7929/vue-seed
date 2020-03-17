@@ -81,7 +81,7 @@ export default {
     }
   },
   mounted() {
-    CommonTool.setTitle("花生微店");
+    // CommonTool.setTitle("花生微店");
     if (this.banners && this.banners.length > 0) {
       //初始化swiper
       new Swiper(".swiper-container", {

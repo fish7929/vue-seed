@@ -76,7 +76,7 @@ export default {
     ...mapActions(["getMerchantStatusAction", "getMerchantInfoAction"])
   },
   mounted() {
-    CommonTool.setTitle("我");
+    // CommonTool.setTitle("我");
     //查询我的信息
     if (!this.merchantInfo) {
       //没有信息的时候

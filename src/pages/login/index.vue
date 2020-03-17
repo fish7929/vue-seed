@@ -122,7 +122,7 @@ export default {
     }
   },
   mounted() {
-    CommonTool.setTitle("登录");
+    // CommonTool.setTitle("登录");
   },
   /**
    * 在销毁之前

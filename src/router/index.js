@@ -19,6 +19,10 @@ const router = new VueRouter({
 });
 // 路由判断登录 根据路由配置文件的参数
 router.beforeEach((to, from, next) => {
+    //动态设置标题
+    if (to.meta.title) { // 判断是否有标题
+        document.title = to.meta.title;
+    }
     if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
         //需要登录
         const currentUser = CommonTool.getLocalStorageObject('CURRENT_USER');

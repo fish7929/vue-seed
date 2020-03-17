@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       errorMsg: "",
-      errorType: 1
+      errorType: 2
     };
   },
   props: {
@@ -158,6 +158,7 @@ export default {
         this.errorMsg = errorMsg;
       } else if (this.errorType === 2) {
         // errorMsg && Toast.info(errorMsg, 2); //todo 过度依赖与AppModal  暂时不显示消息
+        errorMsg && this.$toast(errorMsg);
       }
       return isOk;
     },
