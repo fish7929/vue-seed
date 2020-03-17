@@ -46,7 +46,7 @@ const getAssetsUrl = (env = BUILD_ENV, relativePath) => {
   return assetsUrl + suffix
 }
 //路由的模式
-let routerMode = 'hash';  //'history' 'hash'
+let routerMode = 'history';  //'history' 'hash'
 module.exports = {
   routerMode,
   getApiHost,

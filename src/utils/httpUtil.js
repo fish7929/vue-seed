@@ -1,6 +1,7 @@
 import CommonTool from "./commonTool";
 // import { Toast } from "antd-mobile";
 import 'whatwg-fetch';
+
 // let timeout = 10000;  //默认10S
 let timeout = 120000;  //修改为 2分钟
 export default class HttpUtil {
@@ -86,7 +87,7 @@ export default class HttpUtil {
     }
     const { isShowLoading } = httpCustomerOpertion;
     if (isShowLoading) {
-      // HttpUtil.showLoading()
+      HttpUtil.showLoading()
     }
     httpCustomerOpertion.isFetched = false
     httpCustomerOpertion.isAbort = false
@@ -107,7 +108,7 @@ export default class HttpUtil {
             return
           }
           if (isShowLoading) {
-            // HttpUtil.hideLoading()
+            HttpUtil.hideLoading()
           }
           httpCustomerOpertion.isFetched = true
           response.json().then(jsonBody => {
@@ -132,7 +133,7 @@ export default class HttpUtil {
                 window.location.href = "/login";  //去登录
                 return;
               }
-              // Toast.info(msg, 2)
+              MyVue.$toast(msg, 2)
               reject(HttpUtil.handleResult({ fetchStatus: "error", netStatus: response.code }, httpCustomerOpertion))
             }
           }).catch(e => {
@@ -157,11 +158,11 @@ export default class HttpUtil {
           return
         }
         if (isShowLoading) {
-          // HttpUtil.hideLoading()
+          HttpUtil.hideLoading()
         }
         httpCustomerOpertion.isFetched = true
         if (httpCustomerOpertion.isHandleResult === true) {
-          // Toast.info("网络开小差了，稍后再试吧", 2)
+          MyVue.$toast("网络开小差了，稍后再试吧", 2)
         }
         reject(HttpUtil.handleResult({ fetchStatus: "error", error: errMsg }, httpCustomerOpertion))
       })
@@ -181,7 +182,7 @@ export default class HttpUtil {
     }
     if (result.code !== 200 && httpCustomerOpertion.isHandleResult === true) {
       const errMsg = result.msg || result.message || "服务器开小差了，稍后再试吧"
-      // Toast.info(`${errMsg}（${result.code}）`, 2)
+      MyVue.$toast(`${errMsg}（${result.code}）`, 2)
     }
     return result
   }
@@ -198,9 +199,9 @@ export default class HttpUtil {
           httpCustomerOpertion.isAbort = true
           console.error('ERR: 请求超时')
           if (isShowLoading) {
-            // HttpUtil.hideLoading()
+            HttpUtil.hideLoading()
           }
-          // Toast.info('网络开小差了，稍后再试吧', 2);
+          MyVue.$toast('网络开小差了，稍后再试吧', 2);
           reject({ fetchStatus: "timeout" })
         }
       }, httpCustomerOpertion.timeout || timeout)
@@ -236,7 +237,8 @@ export default class HttpUtil {
     if (window.bridge) {
       window.bridge.showLoading().then(function () { });
     } else {
-      // Toast.loading('加载中...', 100);
+      //这里的 MyVue 为全局的实例
+      MyVue.$loading('加载中...', 1000);
     }
   }
 
@@ -247,7 +249,8 @@ export default class HttpUtil {
     if (window.bridge) {
       window.bridge.hideLoading();
     } else {
-      // Toast.hide();
+      //这里的 MyVue 为全局的实例
+      MyVue.$hideModal();
     }
   }
 
