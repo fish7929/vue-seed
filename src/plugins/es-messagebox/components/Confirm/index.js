@@ -8,8 +8,8 @@ let globalConfig = {};
 
 let ConfirmConstructor = Vue.extend(ConfirmComponent);
 
-let initInstance = ()=>{
-    if(!instance) {
+let initInstance = () => {
+    if (!instance) {
         instance = new ConfirmConstructor({
             el: document.createElement('div')
         });
@@ -17,7 +17,7 @@ let initInstance = ()=>{
     }
 }
 
-let Confirm = (content, options={}) => {
+let Confirm = (content, options = {}) => {
     initInstance();
 
     options.content = content;
@@ -27,7 +27,7 @@ let Confirm = (content, options={}) => {
     // 将单个 confirm instance 的配置合并到默认值中
     merge(instance.$data, options);
 
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         instance.show = true;
 
         let success = instance.success;
@@ -45,7 +45,7 @@ let Confirm = (content, options={}) => {
 
 }
 export default {
-    install (Vue, options={}) {
+    install(Vue, options = {}) {
         globalConfig = options;
         Vue.prototype.$confirm = Confirm;
     }

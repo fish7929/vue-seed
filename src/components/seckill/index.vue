@@ -1,42 +1,42 @@
 <template>
-    <div>
-        <button
-            @click="handleClick"
-            :disabled="disabled"
-        >
-            {{btnText}}
-        </button>
-        <span>{{tip}}</span>
-    </div>
+  <div>
+    <button
+      @click="handleClick"
+      :disabled="disabled"
+    >
+      {{btnText}}
+    </button>
+    <span>{{tip}}</span>
+  </div>
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  name: "Seckill",
+  name: 'Seckill',
   props: {
     startTime: {
       required: true,
       validator: val => {
         return moment.isMoment(val);
-      }
+      },
     },
     endTime: {
       required: true,
       validator: val => {
         return moment.isMoment(val);
-      }
-    }
+      },
+    },
   },
   data() {
     return {
       start: false,
       end: false,
       done: false,
-      tip: "",
+      tip: '',
       timeGap: 0,
-      btnText: ""
+      btnText: '',
     };
   },
   computed: {
@@ -44,7 +44,7 @@ export default {
       //当三个异号的时候disable返回真，不可点击，
       // 初始化通过this.updateState确定disable的状态
       return !(this.start && !this.end && !this.done);
-    }
+    },
   },
   async created() {
     const serverTime = await this.getServerTime();
@@ -61,9 +61,9 @@ export default {
   },
   methods: {
     handleClick() {
-      alert("提交成功");
+      alert('提交成功');
       this.done = true;
-      this.btnText = "已参加过活动";
+      this.btnText = '已参加过活动';
     },
     getServerTime() {
       //模拟服务器时间
@@ -80,24 +80,24 @@ export default {
       const diffEnd = this.endTime.diff(now); //结束时间和服务器时间之差
       if (diffStart < 0) {
         this.start = true;
-        this.tip = "秒杀已开始";
-        this.btnText = "参加";
+        this.tip = '秒杀已开始';
+        this.btnText = '参加';
       } else {
         this.tip = `距离秒杀开始还剩${Math.ceil(diffStart / 1000)}秒`;
-        this.btnText = "活动未开始";
+        this.btnText = '活动未开始';
       }
       if (diffEnd <= 0) {
         this.end = true;
-        if (!this.btnText === "已参加过活动" || this.btnText === "参加") {
-          this.tip = "秒杀已结束";
-          this.btnText = "活动已结束";
+        if (!this.btnText === '已参加过活动' || this.btnText === '参加') {
+          this.tip = '秒杀已结束';
+          this.btnText = '活动已结束';
         }
       }
-    }
+    },
   },
   beforeDestroy() {
     clearInterval(this.timeInterval);
-  }
+  },
 };
 </script>
 

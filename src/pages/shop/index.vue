@@ -58,13 +58,13 @@
 </template>
 
 <script>
-import headTop from "Components/header";
-import footGuide from "Components/footer";
-import { getGoodsList } from "Api/httpApi";
-import { mapState, mapMutations, mapActions } from "vuex";
-import CommonTool from "Utils/commonTool";
-import "Plugins/swiper.min.js";
-import "Styles/swiper.min.css";
+import headTop from 'Components/header';
+import footGuide from 'Components/footer';
+import { getGoodsList } from 'Api/httpApi';
+import { mapState, mapMutations, mapActions } from 'vuex';
+import CommonTool from 'Utils/commonTool';
+import 'Plugins/swiper.min.js';
+import 'Styles/swiper.min.css';
 export default {
   data() {
     return {};
@@ -72,32 +72,32 @@ export default {
   created() {},
   components: {
     headTop,
-    footGuide
+    footGuide,
   },
   computed: {
-    ...mapState(["goodsList", "banners"]),
+    ...mapState(['goodsList', 'banners']),
     noWx() {
-      return CommonTool.isWeiXinPlatform() ? " without-weixin" : "";
-    }
+      return CommonTool.isWeiXinPlatform() ? ' without-weixin' : '';
+    },
   },
   mounted() {
     // CommonTool.setTitle("花生微店");
     if (this.banners && this.banners.length > 0) {
       //初始化swiper
-      new Swiper(".swiper-container", {
-        pagination: this.banners.length > 1 ? ".swiper-pagination" : "",
+      new Swiper('.swiper-container', {
+        pagination: this.banners.length > 1 ? '.swiper-pagination' : '',
         loop: this.banners.length > 1 ? true : false,
         autoplay: this.banners.length > 1 ? 5000 : 0,
-        speed: 500
+        speed: 500,
       });
     }
     if (!this.goodsList || this.goodsList.length <= 0) {
       this.getGoodsListAction();
     }
-    console.log("mounted");
+    console.log('mounted');
   },
   methods: {
-    ...mapActions(["getGoodsListAction"]),
+    ...mapActions(['getGoodsListAction']),
     /**
      * swiper 点击事件
      * @param {String} url 需要跳转的url
@@ -106,8 +106,8 @@ export default {
       if (url) {
         window.location.href = url;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

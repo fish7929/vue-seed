@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import headTop from "Components/header";
-import { mapState } from "vuex";
-import CommonTool from "Utils/commonTool";
+import headTop from 'Components/header';
+import { mapState } from 'vuex';
+import CommonTool from 'Utils/commonTool';
 
 export default {
   data() {
@@ -38,12 +38,12 @@ export default {
   },
   created() {},
   components: {
-    headTop
+    headTop,
   },
   computed: {
-    ...mapState(["goodsList"]),
+    ...mapState(['goodsList']),
     noWx() {
-      return CommonTool.isWeiXinPlatform() ? " without-weixin" : "";
+      return CommonTool.isWeiXinPlatform() ? ' without-weixin' : '';
     },
     goodsId() {
       return this.$route.params.id;
@@ -62,12 +62,12 @@ export default {
       } else {
         return null;
       }
-    }
+    },
   },
   mounted() {
     // CommonTool.setTitle("商品详情");
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

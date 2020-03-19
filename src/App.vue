@@ -19,12 +19,12 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
 };
 </script>
 
 <style lang="scss">
-@import "./styles/app";
+@import './styles/app';
 .router-fade-enter-active,
 .router-fade-leave-active {
   transition: opacity 0.3s;

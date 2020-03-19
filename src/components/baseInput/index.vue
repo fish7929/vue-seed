@@ -38,8 +38,8 @@
 export default {
   data() {
     return {
-      errorMsg: "",
-      errorType: 2
+      errorMsg: '',
+      errorType: 2,
     };
   },
   props: {
@@ -47,52 +47,52 @@ export default {
     value: [String, Number],
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     cls: {
       type: String,
-      default: ""
+      default: '',
     },
     placeholder: {
       type: String,
-      default: "请输入"
+      default: '请输入',
     },
     type: {
       type: String,
-      default: "text"
+      default: 'text',
     },
     maxlength: {
       type: Number,
-      default: 20
+      default: 20,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
-      default: true
+      default: true,
     },
     focused: {
       type: Boolean,
-      default: false
+      default: false,
     },
     showDel: {
       type: Boolean,
-      default: true
+      default: true,
     },
     rightClass: {
       type: String,
-      default: ""
+      default: '',
     },
     rightText: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   model: {
-    prop: "value",
-    event: "input"
+    prop: 'value',
+    event: 'input',
   },
   mounted() {},
   directives: {
@@ -104,8 +104,8 @@ export default {
         if (focused) {
           el.focus();
         }
-      }
-    }
+      },
+    },
   },
   computed: {
     /**
@@ -116,7 +116,7 @@ export default {
     },
     showClear() {
       return this.value && this.showDel && !this.disabled;
-    }
+    },
   },
   /**
    * 在销毁之前
@@ -129,7 +129,7 @@ export default {
      * 右键点击的操作事件
      */
     rightHandler() {
-      this.$emit("rightHandler");
+      this.$emit('rightHandler');
     },
     /**
      * 除非v-model 的双向绑定事件
@@ -137,22 +137,22 @@ export default {
     changeHandler(event) {
       const target = event.target ? event.target : null;
       const val = target ? target.value : event;
-      this.errorMsg = ""; //清除的时候 去掉错误提示
-      this.$emit("input", val);
+      this.errorMsg = ''; //清除的时候 去掉错误提示
+      this.$emit('input', val);
     },
     /**
      * 失去焦点操作
      */
     blurHandler() {
       let isOk = true;
-      let errorMsg = "";
+      let errorMsg = '';
       if (this.required && !this.value) {
-        errorMsg = "值不能为空";
+        errorMsg = '值不能为空';
         isOk = false;
       } else if (this.value && this.pattern) {
         let reg = new RegExp(this.pattern);
         isOk = reg.test(this.value);
-        errorMsg = isOk ? "" : "您输入的值格式不正确，请重新输入";
+        errorMsg = isOk ? '' : '您输入的值格式不正确，请重新输入';
       }
       if (this.errorType === 1) {
         this.errorMsg = errorMsg;
@@ -167,8 +167,8 @@ export default {
      */
     cancelFocus() {
       this.$refs.baseCommonInput.blur();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -228,7 +228,7 @@ export default {
       color: #dadada;
     }
     i {
-      background: url("./files/contact.png") left center no-repeat;
+      background: url('./files/contact.png') left center no-repeat;
       background-size: 40px;
       text-indent: 40px;
       float: right;
@@ -244,7 +244,7 @@ export default {
       font-style: normal;
       color: #fff;
       background-repeat: no-repeat;
-      background-image: url("./files/del.png");
+      background-image: url('./files/del.png');
       background-size: 28px;
       background-position: center;
     }
@@ -260,7 +260,7 @@ export default {
 
   .base-input-error-msg:before {
     display: inline-block;
-    content: "!";
+    content: '!';
     width: 28px;
     height: 28px;
     border-radius: 100%;

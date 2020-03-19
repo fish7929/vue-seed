@@ -25,19 +25,19 @@
 </template>
 
 <script>
-import headTop from "Components/header";
-import Seckill from "Components/seckill";
-import customerDirective from "Components/demo/customerDirective.vue";
-import moment from "moment";
-import jsRender from "Components/demo/jsRender.js";
-import jsxRender from "Components/demo/jsxRender.jsx";
-import templateRender from "Components/demo/templateRender.vue";
+import headTop from 'Components/header';
+import Seckill from 'Components/seckill';
+import customerDirective from 'Components/demo/customerDirective.vue';
+import moment from 'moment';
+import jsRender from 'Components/demo/jsRender.js';
+import jsxRender from 'Components/demo/jsxRender.jsx';
+import templateRender from 'Components/demo/templateRender.vue';
 export default {
   data() {
     return {
-      endTime: moment(new Date("2020-03-20 00:00:00")),
-      startTime: moment(new Date("2020-03-18 16:00:00")),
-      msg: "hello vue"
+      endTime: moment(new Date('2020-03-20 00:00:00')),
+      startTime: moment(new Date('2020-03-18 16:00:00')),
+      msg: 'hello vue',
     };
   },
   created() {},
@@ -50,8 +50,8 @@ export default {
     templateRender,
     VNodes: {
       functional: true,
-      render: (h, ctx) => ctx.props.vnodes
-    }
+      render: (h, ctx) => ctx.props.vnodes,
+    },
   },
   computed: {},
   methods: {
@@ -61,9 +61,9 @@ export default {
     getAnchoredHeading(level) {
       const Tag = `h${level}`;
       return <Tag>Hello World !!!</Tag>;
-    }
+    },
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 

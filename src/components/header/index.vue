@@ -28,40 +28,40 @@
 </template>
 
 <script>
-import CommonTool from "Utils/commonTool";
+import CommonTool from 'Utils/commonTool';
 export default {
   data() {
     return {
-      isInApp: false
+      isInApp: false,
     };
   },
   props: {
     title: {
       type: String,
       required: true,
-      default: ""
+      default: '',
     },
     cls: {
       type: String,
-      default: ""
+      default: '',
     },
     isShowBack: {
       type: Boolean,
       required: true,
-      default: true
+      default: true,
     },
     isShowRight: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rightClass: {
       type: String,
-      default: ""
+      default: '',
     },
     rightContent: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   mounted() {},
   computed: {
@@ -70,16 +70,16 @@ export default {
      */
     isInWechat() {
       return CommonTool.isWeiXinPlatform();
-    }
+    },
   },
   methods: {
     /**
      * 右键点击的操作事件
      */
     rightHandler() {
-      this.$emit("rightHandler");
-    }
-  }
+      this.$emit('rightHandler');
+    },
+  },
 };
 </script>
 
@@ -105,7 +105,7 @@ export default {
       left: 0;
       min-width: 72px;
       height: 100%;
-      background: url("./files/back.png") no-repeat 16px center;
+      background: url('./files/back.png') no-repeat 16px center;
       background-size: 40px;
       z-index: 9;
       border: 0;

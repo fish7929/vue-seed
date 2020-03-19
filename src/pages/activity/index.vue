@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import headTop from "Components/header";
-import footGuide from "Components/footer";
+import headTop from 'Components/header';
+import footGuide from 'Components/footer';
 
 export default {
   data() {
@@ -21,13 +21,13 @@ export default {
   created() {},
   components: {
     headTop,
-    footGuide
+    footGuide,
   },
   computed: {},
   methods: {},
   mounted() {
     // CommonTool.setTitle("活动");
-  }
+  },
 };
 </script>
 

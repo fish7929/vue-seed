@@ -107,45 +107,45 @@ export default {
   data() {
     return {
       isShow: false,
-      type: "", // "TOAST" "LOADING" "ALERT" "CONFIRM"
-      cls: "", //需要自定义的样式
+      type: '', // "TOAST" "LOADING" "ALERT" "CONFIRM"
+      cls: '', //需要自定义的样式
       loadingConfig: {
-        message: "" //显示的文案
+        message: '', //显示的文案
       },
       toastConfig: {
-        message: "" //显示的文案
+        message: '', //显示的文案
       },
       alertConfig: {
-        title: "温馨提示", //默认2分钟,
-        message: "", //显示的文案
+        title: '温馨提示', //默认2分钟,
+        message: '', //显示的文案
         maskCall: null, //蒙层的点击回调
         btn: {
-          text: "知道了",
-          btnCall: null //回调函数
-        }
+          text: '知道了',
+          btnCall: null, //回调函数
+        },
       },
       confirmConfig: {
-        title: "温馨提示", //显示的标题
-        message: "", //显示的文案
+        title: '温馨提示', //显示的标题
+        message: '', //显示的文案
         maskCall: null, //蒙层的点击回调
         okBtn: {
-          text: "确认",
-          btnCall: null //确认回调函数
+          text: '确认',
+          btnCall: null, //确认回调函数
         },
         cancelBtn: {
-          text: "取消",
-          btnCall: null //取消回调函数
-        }
-      }
+          text: '取消',
+          btnCall: null, //取消回调函数
+        },
+      },
     };
   },
   mounted() {
     let listener = () => {
       this.isShow = false;
     };
-    window.addEventListener("hashchange", listener);
-    window.addEventListener("popstate", listener);
-    window.addEventListener("pagehide", listener);
+    window.addEventListener('hashchange', listener);
+    window.addEventListener('popstate', listener);
+    window.addEventListener('pagehide', listener);
   },
   methods: {
     alertBtnHandler() {
@@ -172,8 +172,8 @@ export default {
         this.isShow = false;
         this.confirmConfig.maskCall();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

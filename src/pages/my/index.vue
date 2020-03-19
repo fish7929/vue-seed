@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import headTop from "Components/header";
-import footGuide from "Components/footer";
-import { mapState, mapMutations, mapActions } from "vuex";
+import headTop from 'Components/header';
+import footGuide from 'Components/footer';
+import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -59,21 +59,21 @@ export default {
   created() {},
   components: {
     headTop,
-    footGuide
+    footGuide,
   },
   computed: {
-    ...mapState(["merchantStatus", "merchantInfo", "userInfo"]),
+    ...mapState(['merchantStatus', 'merchantInfo', 'userInfo']),
     mobile() {
       if (this.userInfo) {
         return this.userInfo.mobile;
       } else {
-        const currentUser = CommonTool.getLocalStorageObject("CURRENT_USER");
+        const currentUser = CommonTool.getLocalStorageObject('CURRENT_USER');
         return currentUser.mobile;
       }
-    }
+    },
   },
   methods: {
-    ...mapActions(["getMerchantStatusAction", "getMerchantInfoAction"])
+    ...mapActions(['getMerchantStatusAction', 'getMerchantInfoAction']),
   },
   mounted() {
     // CommonTool.setTitle("我");
@@ -84,7 +84,7 @@ export default {
     }
     //查询入网状态
     this.getMerchantStatusAction();
-  }
+  },
 };
 </script>
 
@@ -122,7 +122,7 @@ export default {
         margin-top: 80px;
         clear: both;
         margin-bottom: 30px;
-        background: url("~Images/icons/login.png") center no-repeat;
+        background: url('~Images/icons/login.png') center no-repeat;
         background-size: 96px;
       }
       .my-info-phone {
@@ -135,7 +135,7 @@ export default {
       &:before {
         position: absolute;
         left: 32px;
-        background: url("~Images/icons/my-store.png") left center no-repeat;
+        background: url('~Images/icons/my-store.png') left center no-repeat;
         background-size: 30px;
         text-indent: 48px;
         color: #464646;
@@ -145,7 +145,7 @@ export default {
       &:before {
         position: absolute;
         left: 32px;
-        background: url("~Images/icons/my-bank.png") left center no-repeat;
+        background: url('~Images/icons/my-bank.png') left center no-repeat;
         background-size: 30px;
         text-indent: 48px;
         color: #464646;
@@ -155,7 +155,7 @@ export default {
       &:before {
         position: absolute;
         left: 32px;
-        background: url("~Images/icons/my-balance.png") left center no-repeat;
+        background: url('~Images/icons/my-balance.png') left center no-repeat;
         background-size: 30px;
         text-indent: 48px;
         color: #464646;
@@ -165,7 +165,7 @@ export default {
       &:before {
         position: absolute;
         left: 32px;
-        background: url("~Images/icons/my-deal.png") left center no-repeat;
+        background: url('~Images/icons/my-deal.png') left center no-repeat;
         background-size: 30px;
         text-indent: 48px;
         color: #464646;
@@ -175,7 +175,7 @@ export default {
       &:before {
         position: absolute;
         left: 32px;
-        background: url("~Images/icons/my-closing.png") left center no-repeat;
+        background: url('~Images/icons/my-closing.png') left center no-repeat;
         background-size: 30px;
         text-indent: 48px;
         color: #464646;

@@ -8,8 +8,8 @@ let globalConfig = {};
 
 let AlertConstructor = Vue.extend(AlertComponent);
 
-let initInstance = ()=>{
-    if(!instance) {
+let initInstance = () => {
+    if (!instance) {
         instance = new AlertConstructor({
             el: document.createElement('div')
         });
@@ -18,16 +18,16 @@ let initInstance = ()=>{
 }
 
 let Alert = (content, options = {}) => {
-    initInstance();        
+    initInstance();
 
     options.content = content;
     // 将全局的 Alert 配置 合并到默认值中
     merge(instance.$data, globalConfig);
     // 将单个 Alert instance 的配置合并到默认值中
     merge(instance.$data, options);
-    
 
-    return new Promise((resolve, reject)=>{
+
+    return new Promise((resolve, reject) => {
         instance.show = true;
 
         let success = instance.success;
@@ -38,7 +38,7 @@ let Alert = (content, options = {}) => {
     });
 }
 export default {
-    install (Vue, options={}) {
+    install(Vue, options = {}) {
         globalConfig = options;
         Vue.prototype.$alert = Alert;
     }

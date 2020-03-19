@@ -40,39 +40,39 @@ export default {
       isLoading: false,
       countDown: 60,
       timeout: null,
-      disabled: true
+      disabled: true,
     };
   },
   props: {
     value: [String, Number],
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     cls: {
       type: String,
-      default: ""
+      default: '',
     },
     placeholder: {
       type: String,
-      default: "请输入"
+      default: '请输入',
     },
     maxlength: {
       type: Number,
-      default: 6
+      default: 6,
     },
     focused: {
       type: Boolean,
-      default: false
+      default: false,
     },
     getCode: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
   model: {
-    prop: "value",
-    event: "input"
+    prop: 'value',
+    event: 'input',
   },
   mounted() {},
   directives: {
@@ -84,8 +84,8 @@ export default {
         if (focused) {
           el.focus();
         }
-      }
-    }
+      },
+    },
   },
   computed: {
     /**
@@ -98,16 +98,16 @@ export default {
      * 加载样式
      */
     loadingCls() {
-      return this.isLoading ? "verify-button-loading" : "";
+      return this.isLoading ? 'verify-button-loading' : '';
     },
     /**
      * 按钮提示文案
      */
     btnText() {
       return this.countDown == 60
-        ? "获取验证码"
-        : this.countDown + "秒后重新获取";
-    }
+        ? '获取验证码'
+        : this.countDown + '秒后重新获取';
+    },
   },
   /**
    * 在销毁之前
@@ -122,7 +122,7 @@ export default {
     changeCodeHandler(event) {
       const target = event.target ? event.target : null;
       const val = target ? target.value : event;
-      this.$emit("input", val);
+      this.$emit('input', val);
     },
     /**
      * 获取验证码
@@ -173,8 +173,8 @@ export default {
       this.isLoading = false;
       this.cancelFocus();
       this.timerOut();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -233,7 +233,7 @@ export default {
     color: #fff;
     // background-color: #ccc;
     background-repeat: no-repeat;
-    background-image: url("~Images/icons/del.png");
+    background-image: url('~Images/icons/del.png');
     background-size: 28px;
     background-position: center;
     margin-right: 40px;
@@ -262,7 +262,7 @@ export default {
   width: 8px;
   height: 8px;
   margin: auto;
-  content: "";
+  content: '';
   -webkit-animation: spinZoom 1s steps(8) infinite;
   animation: spinZoom 1s steps(8) infinite;
   border-radius: 100%;

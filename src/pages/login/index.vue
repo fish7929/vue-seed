@@ -34,24 +34,24 @@
 </template>
 
 <script>
-import baseInput from "Components/baseInput";
-import verifyInput from "Components/verifyInput";
-import { getAuthCode, login } from "Api/httpApi";
-import { mapMutations } from "vuex";
+import baseInput from 'Components/baseInput';
+import verifyInput from 'Components/verifyInput';
+import { getAuthCode, login } from 'Api/httpApi';
+import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
       phoneLabel: '<i class="login-phone-icon"></i>',
-      mobile: "", //电话号码
+      mobile: '', //电话号码
       mLength: 11,
-      mobileCode: "", //验证码
-      cLength: 4
+      mobileCode: '', //验证码
+      cLength: 4,
     };
   },
   created() {},
   components: {
     baseInput,
-    verifyInput
+    verifyInput,
   },
   computed: {
     disable() {
@@ -60,11 +60,11 @@ export default {
         (this.mobileCode && this.mobileCode.length === this.cLength)
         ? false
         : true;
-    }
+    },
   },
   watch: {},
   methods: {
-    ...mapMutations(["SAVE_USERINFO"]),
+    ...mapMutations(['SAVE_USERINFO']),
     /**
      * 登录的操作
      */
@@ -74,7 +74,7 @@ export default {
       if (this.checkMobile()) {
         let res = await login({
           mobile: this.mobile,
-          mobileCode: this.mobileCode
+          mobileCode: this.mobileCode,
         });
         if (res && res.code === 200) {
           let info = res.data || {};
@@ -82,7 +82,7 @@ export default {
             info.mobile = this.mobile;
           }
           this.SAVE_USERINFO(info);
-          this.$router.push("/");
+          this.$router.push('/');
           console.log(info, 7788);
         }
       } else {
@@ -99,9 +99,9 @@ export default {
         //todo  需要显示加载
         let res = await getAuthCode(this.mobile);
         if (res && res.code === 200) {
-          cb && cb(0, "");
+          cb && cb(0, '');
         } else {
-          cb && cb(1, "获取验证码失败");
+          cb && cb(1, '获取验证码失败');
         }
       } else {
       }
@@ -119,7 +119,7 @@ export default {
       baseInput && baseInput.cancelFocus();
       const verifyInput = this.$refs.verifyInput;
       verifyInput && verifyInput.cancelFocus();
-    }
+    },
   },
   mounted() {
     // CommonTool.setTitle("登录");
@@ -129,7 +129,7 @@ export default {
    */
   beforeDestroy() {
     this.cancelFocus();
-  }
+  },
 };
 </script>
 
@@ -142,7 +142,7 @@ export default {
     width: 160px;
     height: 160px;
     border-radius: 100%;
-    background: url("~Images/icons/logo.png") center no-repeat;
+    background: url('~Images/icons/logo.png') center no-repeat;
     background-size: 160px;
   }
   .login-phone-input {
@@ -151,7 +151,7 @@ export default {
       padding: 0 80px !important;
       position: relative;
       &:after {
-        content: "";
+        content: '';
         left: 80;
         height: 2px;
         background: #fdd40f;
@@ -167,7 +167,7 @@ export default {
       display: inline-block;
       width: 100%;
       height: 100%;
-      background: url("~Images/icons/phone.png") no-repeat left center;
+      background: url('~Images/icons/phone.png') no-repeat left center;
       background-size: 36px;
       font-style: normal;
     }
@@ -176,7 +176,7 @@ export default {
     position: relative;
     padding: 0 80px !important;
     &:after {
-      content: "";
+      content: '';
       left: 80px;
       height: 2px;
       background: #fdd40f;
@@ -191,7 +191,7 @@ export default {
       display: inline-block;
       width: 100%;
       height: 100%;
-      background: url("~Images/icons/password.png") no-repeat left center;
+      background: url('~Images/icons/password.png') no-repeat left center;
       background-size: 36px;
       font-style: normal;
     }

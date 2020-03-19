@@ -4,9 +4,52 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 //从命令行参数获取值
 const NodeEnv = process.env.NODE_ENV || 'development';
+
+
+const optimization = {
+    runtimeChunk: {
+        name: 'manifest'
+    },
+    minimizer: [
+        new TerserPlugin({
+            cache: true,
+            parallel: true,
+            sourceMap: true, // Must be set to true if using source-maps in production
+            terserOptions: {
+                // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+            }
+        }),
+    ], // [new UglifyJsPlugin({...})]
+    splitChunks: {
+        chunks: 'async',
+        minSize: 30000,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        name: false,
+        cacheGroups: {
+            vendor: {
+                name: 'vendor',
+                chunks: 'initial',
+                priority: -10,
+                reuseExistingChunk: false,
+                test: /node_modules\/(.*)\.js/
+            },
+            styles: {
+                name: 'styles',
+                test: /\.(scss|css)$/,
+                chunks: 'all',
+                minChunks: 1,
+                reuseExistingChunk: true,
+                enforce: true
+            }
+        }
+    }
+}
 
 module.exports = env => {
     // console.log(env, 788);
@@ -14,7 +57,7 @@ module.exports = env => {
     return {
         entry: ['babel-polyfill', path.join(__dirname, 'src/main.js')],
         output: {
-            filename: NodeEnv === 'development' ? "app.[hash:8].js" : "[name].[chunkhash:8].js",
+            filename: NodeEnv === 'development' ? "app.[hash:8].js" : "[name].[hash:8].js",
             chunkFilename: NodeEnv === 'development' ? '[name].[chunkhash:8].chunk.js' : '[name].[chunkhash:8].chunk.js',
             path: path.join(__dirname, 'dist')
         },
@@ -99,20 +142,20 @@ module.exports = env => {
                 'BUILD_ENV': JSON.stringify(curEnv)
             }),
             new MiniCssExtractPlugin({
-                filename: NodeEnv === 'development' ? '[name].css' : '[name].[chunkhash:8].css',
-                chunkFilename: "[id].css"
+                filename: NodeEnv === 'development' ? '[name].css' : '[name].[hash:8].css',
+                chunkFilename: "[id].[hash:8].css"
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoEmitOnErrorsPlugin()
-        ],
+        ]
     }
 }
 
 //生成环境
 if (NodeEnv === 'production') {
     module.exports.devtool = '#source-map';
+    module.exports.optimization = optimization;
     module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.optimize.UglifyJsPlugin(),
         new OptimizeCSSAssetsPlugin({
             cssProcessor: require('cssnano'), //引入cssnano配置压缩选项
             cssProcessorOptions: {

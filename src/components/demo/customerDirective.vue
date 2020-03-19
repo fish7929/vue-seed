@@ -12,72 +12,72 @@
 export default {
   //实例化之后，数据观测和事件配置之前调用
   beforeCreate() {
-    console.log("beforeCreate");
+    console.log('beforeCreate');
   },
   //声明组件
   components: {},
   directives: {
     appendText: {
       bind() {
-        console.log("directives bind");
+        console.log('directives bind');
       },
       inserted(el, binding) {
         el.appendChild(document.createTextNode(binding.value));
-        console.log("directives inserted", el, binding);
+        console.log('directives inserted', el, binding);
       },
       update() {
-        console.log("directives update");
+        console.log('directives update');
       },
       componentUpdated(el, binding) {
         el.removeChild(el.childNodes[el.childNodes.length - 1]);
         el.appendChild(document.createTextNode(binding.value));
-        console.log("directives componentUpdated", el, binding);
+        console.log('directives componentUpdated', el, binding);
       },
       unbind() {
-        console.log("directives unbind");
-      }
-    }
+        console.log('directives unbind');
+      },
+    },
   },
   data() {
-    console.log("data");
+    console.log('data');
     return {
       number: 1,
-      show: true
+      show: true,
     };
   },
   created() {
-    console.log("created");
+    console.log('created');
   },
   beforeMount() {
-    console.log("beforeMount");
+    console.log('beforeMount');
   },
   mounted() {
-    console.log("mounted");
+    console.log('mounted');
   },
   activated() {
-    console.log("activated");
+    console.log('activated');
   },
   deactivated() {
-    console.log("deactivated");
+    console.log('deactivated');
   },
   beforeUpdate() {
-    console.log("beforeUpdate");
+    console.log('beforeUpdate');
   },
   updated() {
-    console.log("updated");
+    console.log('updated');
   },
   beforeDestroy() {
-    console.log("beforeDestroy");
+    console.log('beforeDestroy');
   },
   destroyed() {
-    console.log("destroyed");
+    console.log('destroyed');
   },
   computed: {
     btnTxt() {
-      return this.show ? "销毁" : "挂载";
-    }
+      return this.show ? '销毁' : '挂载';
+    },
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

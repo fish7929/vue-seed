@@ -17,7 +17,10 @@
     </div>
     <div id="app-4">
       <ol>
-        <li v-for="(todo, index) in todos" v-bind:key="index">
+        <li
+          v-for="(todo, index) in todos"
+          v-bind:key="index"
+        >
           {{ todo.text }}
         </li>
       </ol>
@@ -33,7 +36,10 @@
       <div @click.stop='click2'>click me</div>
     </a>
     <div v-html="rawHtml"></div>
-    <div style="width:200px; height:200px;" :class="{active: isActive}">Hi Vue</div>
+    <div
+      style="width:200px; height:200px;"
+      :class="{active: isActive}"
+    >Hi Vue</div>
     <div v-if="type === 'A'">
       A
     </div>
@@ -52,124 +58,169 @@
       <button v-on:click="greet('haha', $event)">Greet</button>
     </div>
     <div>
-      <input type="text" v-model="name" placeholder="edit your name" />
+      <input
+        type="text"
+        v-model="name"
+        placeholder="edit your name"
+      />
       <p>你的姓名：{{name}}</p>
-      <textarea type="text" v-model="note" placeholder="edit your note"></textarea>
+      <textarea
+        type="text"
+        v-model="note"
+        placeholder="edit your note"
+      ></textarea>
       <p>你的备注：{{note}}</p>
-      <input type="checkbox" id="english" value="English" v-model="checkedLang">
+      <input
+        type="checkbox"
+        id="english"
+        value="English"
+        v-model="checkedLang"
+      >
       <label for="english">English</label>
-      <input type="checkbox" id="java" value="Java" v-model="checkedLang">
+      <input
+        type="checkbox"
+        id="java"
+        value="Java"
+        v-model="checkedLang"
+      >
       <label for="java">Java</label>
-      <input type="checkbox" id="react" value="React" v-model="checkedLang">
+      <input
+        type="checkbox"
+        id="react"
+        value="React"
+        v-model="checkedLang"
+      >
       <label for="react">React</label>
-      <input type="checkbox" id="vue" value="Vue" v-model="checkedLang">
+      <input
+        type="checkbox"
+        id="vue"
+        value="Vue"
+        v-model="checkedLang"
+      >
       <label for="vue">Vue</label>
       <p>选择的语音: {{ checkedLang }}</p>
-      <input type="radio" id="yes" value="Yes" v-model="picked">
+      <input
+        type="radio"
+        id="yes"
+        value="Yes"
+        v-model="picked"
+      >
       <label for="yes">Yes</label>
-      <input type="radio" id="no" value="No" v-model="picked">
+      <input
+        type="radio"
+        id="no"
+        value="No"
+        v-model="picked"
+      >
       <label for="no">No</label>
       <p>是否精通: {{ picked }}</p>
       <select v-model="selected">
-        <option disabled value="">请选择</option>
+        <option
+          disabled
+          value=""
+        >请选择</option>
         <option>A</option>
         <option>B</option>
         <option>C</option>
       </select>
       <p>成绩: {{ selected }}</p>
     </div>
-    <MyComponent title="HI" content="content......" @tap1="tap"></MyComponent>
+    <MyComponent
+      title="HI"
+      content="content......"
+      @tap1="tap"
+    ></MyComponent>
     <router-link to="/foo">Go to Foo</router-link>
     <router-link to="/bar">Go to Bar</router-link>
     <router-view></router-view>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
-import MyComponent from "Components/myComponent";
+import { mapState } from 'vuex';
+import MyComponent from 'Components/myComponent';
 export default {
   //实例化之后，数据观测和事件配置之前调用
   beforeCreate() {
-    console.log("beforeCreate");
+    console.log('beforeCreate');
   },
   //声明组件
   components: {
-    MyComponent
+    MyComponent,
   },
   data() {
-    console.log("data");
+    console.log('data');
     return {
       seen: true,
-      message: "页面加载于 " + new Date().toLocaleString(),
+      message: '页面加载于 ' + new Date().toLocaleString(),
       todos: [
-        { text: "学习 JavaScript" },
-        { text: "学习 Vue" },
-        { text: "整个牛项目" }
+        { text: '学习 JavaScript' },
+        { text: '学习 Vue' },
+        { text: '整个牛项目' },
       ],
       rawHtml: '<span style="color: red;">你好。。。。。</span>',
-      eventName: "click",
+      eventName: 'click',
       isActive: true,
-      type: "A",
+      type: 'A',
       ok: false,
-      name: "",
-      note: "",
+      name: '',
+      note: '',
       picked: false,
       checkedLang: [],
-      selected: ""
+      selected: '',
     };
   },
   created() {
-    console.log("created");
+    console.log('created');
   },
   beforeMount() {
-    console.log("beforeMount");
+    console.log('beforeMount');
   },
   mounted() {
-    console.log("mounted");
-    this.$store.dispatch("data/getList");
+    console.log('mounted');
+    this.$store.dispatch('data/getList');
   },
   activated() {
-    console.log("activated");
+    console.log('activated');
   },
   deactivated() {
-    console.log("deactivated");
+    console.log('deactivated');
   },
   beforeUpdate() {
-    console.log("beforeUpdate");
+    console.log('beforeUpdate');
   },
   updated() {
-    console.log("updated");
+    console.log('updated');
   },
   beforeDestroy() {
-    console.log("beforeDestroy");
+    console.log('beforeDestroy');
   },
   destroyed() {
-    console.log("destroyed");
+    console.log('destroyed');
   },
   computed: mapState({
-    vueData: state => state.data.dataList
+    vueData: state => state.data.dataList,
   }),
   methods: {
     reverseMessage: function() {
       this.message = this.message
-        .split("")
+        .split('')
         .reverse()
-        .join("");
+        .join('');
     },
     click1() {
-      console.log("click1");
+      console.log('click1');
     },
     click2() {
-      console.log("click2");
+      console.log('click2');
     },
     greet(str, e) {
       console.log(this.message + str);
       e && console.log(e.target.tagName);
     },
     tap(e) {
-      console.log("f父组件", e);
-    }
-  }
+      console.log('f父组件', e);
+    },
+  },
 };
 </script>
 
