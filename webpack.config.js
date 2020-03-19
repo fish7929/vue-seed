@@ -21,7 +21,7 @@ module.exports = env => {
         module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.js|.jsx$/,
                     loader: 'babel-loader',
                     exclude: /node_modules/
                 },
@@ -63,7 +63,7 @@ module.exports = env => {
             ]
         },
         resolve: {
-            extensions: ['.js', '.vue', '.less', '.css', '.scss'],
+            extensions: ['.js', '.jsx', '.vue', '.less', '.css', '.scss'],
             modules: ["node_modules"],
             alias: {
                 vue: 'vue/dist/vue.min.js',
