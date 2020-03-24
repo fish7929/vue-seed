@@ -10,8 +10,7 @@ Vue.use(AppModal);
 //router 组件实例化
 Vue.use(VueRouter);
 //实例化app
-const MyVue = new Vue({
+new Vue({
     router,
     store,
 }).$mount('#app');
-window.MyVue = MyVue;

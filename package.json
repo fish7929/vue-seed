@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --env local --config webpack.dev.config.js --devtool source-map --progress --colors --history-api-fallback",
-    "build": "webpack --config webpack.prod.config.js -p",
+    "start": "webpack-dev-server --mode=development  --config webpack.dev.config.js --progress --colors --history-api-fallback  --env local",
+    "build": "webpack --config webpack.prod.config.js --mode=production -p  ",
     "dev": "npm run build -- --env dev ",
     "qa": "npm run build -- --env qa ",
     "staging": "npm run build -- --env staging",

@@ -1,5 +1,6 @@
 import CommonTool from "./commonTool";
 // import { Toast } from "antd-mobile";
+import Modal from "Plugins/appModal/appModal.js";
 import 'whatwg-fetch';
 
 // let timeout = 10000;  //默认10S
@@ -133,7 +134,7 @@ export default class HttpUtil {
                 window.location.href = "/login";  //去登录
                 return;
               }
-              MyVue.$toast(msg, 2)
+              Modal.toast(msg, 2)
               reject(HttpUtil.handleResult({ fetchStatus: "error", netStatus: response.code }, httpCustomerOpertion))
             }
           }).catch(e => {
@@ -162,7 +163,7 @@ export default class HttpUtil {
         }
         httpCustomerOpertion.isFetched = true
         if (httpCustomerOpertion.isHandleResult === true) {
-          MyVue.$toast("网络开小差了，稍后再试吧", 2)
+          Modal.toast("网络开小差了，稍后再试吧", 2)
         }
         reject(HttpUtil.handleResult({ fetchStatus: "error", error: errMsg }, httpCustomerOpertion))
       })
@@ -182,7 +183,7 @@ export default class HttpUtil {
     }
     if (result.code !== 200 && httpCustomerOpertion.isHandleResult === true) {
       const errMsg = result.msg || result.message || "服务器开小差了，稍后再试吧"
-      MyVue.$toast(`${errMsg}（${result.code}）`, 2)
+      Modal.toast(`${errMsg}（${result.code}）`, 2)
     }
     return result
   }
@@ -201,7 +202,7 @@ export default class HttpUtil {
           if (isShowLoading) {
             HttpUtil.hideLoading()
           }
-          MyVue.$toast('网络开小差了，稍后再试吧', 2);
+          Modal.toast('网络开小差了，稍后再试吧', 2);
           reject({ fetchStatus: "timeout" })
         }
       }, httpCustomerOpertion.timeout || timeout)
@@ -238,7 +239,8 @@ export default class HttpUtil {
       window.bridge.showLoading().then(function () { });
     } else {
       //这里的 MyVue 为全局的实例
-      MyVue.$loading('加载中...', 1000);
+      // Modal.loading('加载中...', 1000);
+      Modal.loading('加载中...', 1000);
     }
   }
 
@@ -250,7 +252,8 @@ export default class HttpUtil {
       window.bridge.hideLoading();
     } else {
       //这里的 MyVue 为全局的实例
-      MyVue.$hideModal();
+      // Modal.hideModal();
+      Modal.hide();
     }
   }
 

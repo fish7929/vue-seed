@@ -25,7 +25,7 @@ module.exports = env => {
             hot: true,
             inline: true,
             port: port,
-            host: '0.0.0.0',
+            // host: '0.0.0.0',
             disableHostCheck: true,
             proxy: [  //代理数据请求
                 {
@@ -35,7 +35,7 @@ module.exports = env => {
                 }
             ]
         },
-        devtool: "source-map",
+        devtool: "#cheap-module-eval-source-map",
         plugins: [
             new HtmlWebpackPlugin({
                 template: './index.html', // 注意路径为根目录下的路径
