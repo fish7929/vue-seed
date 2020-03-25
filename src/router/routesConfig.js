@@ -65,6 +65,16 @@ export default [
 					title: "测试"
 				}
 			},
+			//订单记录
+			{
+				path: 'orders', //订单
+				component: BundleLoad.Orders,
+				name: 'orders',
+				meta: {
+					title: "交易记录",
+					requireAuth: true   //是否需要登录 
+				}
+			},
 		]
 	},
 	{ path: "*", component: BundleLoad.NotFound, name: "404" }

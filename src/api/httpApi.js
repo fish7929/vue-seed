@@ -30,3 +30,9 @@ export const getMerchantStatus = (params) => HttpUtil.get(ApiPath.getMerchantSta
  * @param {Object} params  请求的参数
  */
 export const getMerchantInfo = (params) => HttpUtil.get(ApiPath.getUserInfo, params);
+
+/**
+ * 获取订单记录
+ * @param {Object} params  请求的参数
+ */
+export const getOrderRecords = (params) => HttpUtil.get(ApiPath.getDealOrders, params);

@@ -14,3 +14,5 @@ export const Goods = r => require.ensure([], () => r(require('../pages/goods')),
 export const Test = r => require.ensure([], () => r(require('../pages/test')), 'test');
 //实现异步加载
 export const NotFound = r => require.ensure([], () => r(require('../pages/404')), 'notFound');
+//实现异步加载
+export const Orders = r => require.ensure([], () => r(require('../pages/orders')), 'orders');

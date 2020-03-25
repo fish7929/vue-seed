@@ -1,6 +1,6 @@
 import CommonTool from "./commonTool";
 // import { Toast } from "antd-mobile";
-import Modal from "Plugins/appModal/appModal.js";
+import Modal from "Plugins/appModal";
 import 'whatwg-fetch';
 
 // let timeout = 10000;  //默认10S

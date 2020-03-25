@@ -4,7 +4,7 @@ import mutations from './mutations'
 import actions from './action'
 import getters from './getters'
 import state from './state'
-// import login from './modules/login'
+// import orders from './modules/orders'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -13,6 +13,6 @@ export default new Vuex.Store({
 	actions,
 	mutations,
 	// modules: {
-	// 	login
+	// 	orders
 	// }
 })

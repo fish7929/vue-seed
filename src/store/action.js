@@ -17,7 +17,7 @@ export default {
 		state, commit
 	}) {
 		let res = await getGoodsList(null);
-		console.log(res, 999999);
+		// console.log(res, 999999);
 		if (res && res.code === 200) {
 			const info = res.data || {};
 			const { list } = info
